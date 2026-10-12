@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTUiIGZpbGw9IiMzMTU3ZDUiLz4KICA8cGF0aCBkPSJNMTggMTVoMjRhNSA1IDAgMCAxIDUgNXYyOUgyM2E1IDUgMCAwIDEtNS01VjE1WiIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iLjk2Ii8+CiAgPHBhdGggZD0iTTIzIDE1djI5YTUgNSAwIDAgMCA1IDUiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2M5ZDRmZiIgc3Ryb2tlLXdpZHRoPSIzIi8+CiAgPHBhdGggZD0iTTI5IDI1aDExTTI5IDMyaDExTTI5IDM5aDciIHN0cm9rZT0iIzMxNTdkNSIgc3Ryb2tlLXdpZHRoPSIzIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg==" />
+    
+    <title>如何高效学习 · 在线阅读</title>
+    <meta name="description" content="综合认知科学、整体性学习、刻意练习与行动学习方法，整理成 21 个可立即执行的学习动作。" />
+    <meta name="author" content="ArcaneLune 整理" />
+    <meta name="theme-color" content="#2563a8" />
+    <link rel="canonical" href="https://arcanelune.github.io/learn-smarter/" />
+    <meta property="og:type" content="book" />
+    <meta property="og:title" content="如何高效学习" />
+    <meta property="og:description" content="综合认知科学、整体性学习、刻意练习与行动学习方法，整理成 21 个可立即执行的学习动作。" />
+    <meta property="og:url" content="https://arcanelune.github.io/learn-smarter/" />
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Book","name":"如何高效学习","description":"综合认知科学、整体性学习、刻意练习与行动学习方法，整理成 21 个可立即执行的学习动作。","author":{"@type":"Organization","name":"ArcaneLune 整理"},"inLanguage":"zh-CN","url":"https://arcanelune.github.io/learn-smarter/","license":"https://github.com/ArcaneLune/action-book-reader"}</script>
+    <style>:root{--brand:#2563a8;--brand-dark:#8fc5ff;--accent:#e07a2f}</style>
+    <script>(function(){try{var t=localStorage.getItem('book:learn-smarter:theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.dataset.theme='dark'}catch(e){}})();</script>
+    <script type="module">(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const t of document.querySelectorAll('link[rel="modulepreload"]'))c(t);new MutationObserver(t=>{for(const n of t)if(n.type==="childList")for(const s of n.addedNodes)s.tagName==="LINK"&&s.rel==="modulepreload"&&c(s)}).observe(document,{childList:!0,subtree:!0});function r(t){const n={};return t.integrity&&(n.integrity=t.integrity),t.referrerPolicy&&(n.referrerPolicy=t.referrerPolicy),t.crossOrigin==="use-credentials"?n.credentials="include":t.crossOrigin==="anonymous"?n.credentials="omit":n.credentials="same-origin",n}function c(t){if(t.ep)return;t.ep=!0;const n=r(t);fetch(t.href,n)}})();const $=document.querySelector(".reader-shell"),E=$.dataset.bookId,m=[...document.querySelectorAll(".entry-card")],B=[...document.querySelectorAll(".book-chapter")],a=document.querySelector("#searchInput"),A=document.querySelector("#resultCount"),F=document.querySelector("#emptyState"),x=[...document.querySelectorAll(".filter-button")],R=document.querySelector("#themeButton"),C=document.querySelector("#backToTop"),k=document.querySelector("#chapterJump"),J=document.querySelector("#topbar"),T=document.querySelector("#progressBar"),L=document.querySelector("#continueWrap"),P=document.querySelector("#continueButton"),M=document.querySelector("#dismissContinue"),N=`book:${E}:bookmarks`,O=`book:${E}:progress`,V=`book:${E}:theme`;let f="all",b=null,h=W(N),I=0,g=!1,v=!1;function W(e){try{const o=JSON.parse(localStorage.getItem(e)??"[]");return new Set(Array.isArray(o)?o.filter(r=>typeof r=="string"):[])}catch{return new Set}}function K(){try{localStorage.setItem(N,JSON.stringify([...h]))}catch{}}function _(e){const o=[...e.querySelectorAll("mark.search-mark")];for(const r of o)r.replaceWith(document.createTextNode(r.textContent??""));o.length&&e instanceof Node&&e.normalize()}function z(e,o){for(const r of o){const c=document.createTreeWalker(e,NodeFilter.SHOW_TEXT,{acceptNode(n){const s=n.parentElement;return!n.nodeValue?.trim()||!s||s.closest("script,style,mark,a,button,kbd")?NodeFilter.FILTER_REJECT:n.nodeValue.toLocaleLowerCase().includes(r)?NodeFilter.FILTER_ACCEPT:NodeFilter.FILTER_REJECT}}),t=[];for(;c.nextNode();)t.push(c.currentNode);for(const n of t){const s=n.nodeValue??"",p=s.toLocaleLowerCase(),u=document.createDocumentFragment();let l=0,d=p.indexOf(r);for(;d>=0;){u.append(s.slice(l,d));const S=document.createElement("mark");S.className="search-mark",S.textContent=s.slice(d,d+r.length),u.append(S),l=d+r.length,d=p.indexOf(r,l)}u.append(s.slice(l)),n.replaceWith(u)}}}function D(e,o){if(f==="bookmarks"&&!h.has(e.dataset.entryId))return!1;if(f==="badge"&&b)try{if(JSON.parse(e.dataset.badges??"{}")[b.key]!==b.value)return!1}catch{return!1}const r=(e.textContent??"").toLocaleLowerCase();return o.every(c=>r.includes(c))}function y(){_(document.querySelector(".book-main"));const e=a.value.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);let o=0;for(const t of m){const n=D(t,e);t.hidden=!n,n&&(o+=1,e.length&&z(t,e))}for(const t of B){const n=[...t.querySelectorAll(".entry-card")],s=n.filter(l=>!l.hidden).length;t.hidden=s===0,t.querySelector(".chapter-visible").textContent=String(s);const p=document.querySelector(`[data-toc-chapter="${t.id}"]`);p&&(p.hidden=s===0);for(const l of n){const d=document.querySelector(`[data-toc-entry="${l.id}"]`);d&&(d.hidden=l.hidden)}const u=k.querySelector(`option[value="${t.id}"]`);u&&(u.disabled=s===0)}document.body.classList.toggle("plain-mode",f==="plain"),A.textContent=`${o} / ${m.length} 条`,F.hidden=o!==0;const r=new URLSearchParams(location.search);a.value.trim()?r.set("q",a.value.trim()):r.delete("q");const c=r.toString();history.replaceState(history.state,"",`${location.pathname}${c?`?${c}`:""}${location.hash}`)}function H(e){f=e.dataset.mode??"all",b=f==="badge"?{key:e.dataset.filterKey,value:e.dataset.filterValue}:null;for(const o of x){const r=o===e;o.classList.toggle("is-active",r),o.setAttribute("aria-pressed",String(r))}y()}for(const e of x)e.addEventListener("click",()=>H(e));a.addEventListener("input",()=>{window.clearTimeout(I),I=window.setTimeout(y,90)});for(const e of m){const o=e.dataset.entryId,r=e.querySelector(".bookmark-button"),c=()=>{const t=h.has(o);r.classList.toggle("is-saved",t),r.setAttribute("aria-pressed",String(t)),r.title=t?"取消收藏":"收藏"};c(),r.addEventListener("click",()=>{h.has(o)?h.delete(o):h.add(o),K(),c(),f==="bookmarks"&&y()})}R.addEventListener("click",()=>{const e=document.documentElement.dataset.theme==="dark";document.documentElement.dataset.theme=e?"light":"dark";try{localStorage.setItem(V,e?"light":"dark")}catch{}});k.addEventListener("change",()=>document.getElementById(k.value)?.scrollIntoView({behavior:"smooth"}));C.addEventListener("click",()=>window.scrollTo({top:0,behavior:"smooth"}));document.addEventListener("keydown",e=>{e.key==="/"&&document.activeElement!==a&&!document.activeElement?.matches("input,textarea,select")&&(e.preventDefault(),a.focus()),e.key==="Escape"&&document.activeElement===a&&(a.value="",y(),a.blur())});function w(){document.documentElement.style.setProperty("--topbar-height",`${Math.round(J.getBoundingClientRect().height)}px`)}function U(){const e=window.scrollY,o=g?e>180:e>360;o!==g&&(g=o,document.body.classList.toggle("compact",g),w()),C.classList.toggle("is-visible",e>800)}window.addEventListener("scroll",()=>{v||(v=!0,requestAnimationFrame(()=>{v=!1,U()}))},{passive:!0});window.addEventListener("resize",w);w();const G=[...document.querySelectorAll("[data-toc-entry]")],Q=new IntersectionObserver(e=>{const o=e.filter(t=>t.isIntersecting).sort((t,n)=>t.boundingClientRect.top-n.boundingClientRect.top)[0];if(!o)return;const r=o.target;for(const t of G)t.classList.toggle("is-current",t.dataset.tocEntry===r.id);const c=r.closest(".book-chapter");c&&(k.value=c.id)},{rootMargin:"-20% 0px -65% 0px",threshold:0});m.forEach(e=>Q.observe(e));let i=null;try{i=JSON.parse(localStorage.getItem(O)??"null")}catch{i=null}i&&document.getElementById(i.lastId)&&!location.hash&&(L.hidden=!1);const X=new IntersectionObserver(e=>{for(const o of e){if(!o.isIntersecting)continue;const r=o.target,c=Number(r.dataset.entryIndex??0),t={lastId:r.id,maxIndex:Math.max(i?.maxIndex??0,c)};i=t,T.style.width=`${(t.maxIndex+1)/m.length*100}%`;try{localStorage.setItem(O,JSON.stringify(t))}catch{}}},{rootMargin:"-15% 0px -70% 0px",threshold:0});m.forEach(e=>X.observe(e));i&&(T.style.width=`${(i.maxIndex+1)/m.length*100}%`);P.addEventListener("click",()=>{i&&document.getElementById(i.lastId)?.scrollIntoView({behavior:"smooth"}),L.hidden=!0});M.addEventListener("click",()=>{L.hidden=!0});const q=new URLSearchParams(location.search).get("q");q&&(a.value=q);y();
+</script>
+    <style>*,*:before,*:after{box-sizing:border-box}:root{--bg:#fff;--bg-subtle:#f6f7f9;--surface:#fff;--surface-raised:#fff;--line:#dfe3e8;--text:#20232a;--text-2:#545b68;--text-3:#7a8290;--brand:#3157d5;--brand-dark:#9aaeff;--accent:#d97706;--brand-soft:color-mix(in srgb,var(--brand) 10%,transparent);--success:#147a54;--success-soft:#e5f6ee;--warning:#956019;--warning-soft:#fff4dd;--danger:#b8333d;--danger-soft:#fdecef;--neutral:#596273;--neutral-soft:#eef0f3;--mark:#ffe17d;--shadow:0 10px 30px rgba(28,35,48,.08);--topbar-height:66px;--font:ui-sans-serif,system-ui,-apple-system,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans CJK SC",sans-serif}:root[data-theme=dark]{--bg:#17181c;--bg-subtle:#121316;--surface:#1e2025;--surface-raised:#23262c;--line:#333740;--text:#f0f1f3;--text-2:#b9bec8;--text-3:#858c99;--brand:var(--brand-dark);--brand-soft:color-mix(in srgb,var(--brand-dark) 16%,transparent);--success:#57d49a;--success-soft:#18392d;--warning:#f1b55a;--warning-soft:#3b2e1c;--danger:#ff8994;--danger-soft:#402329;--neutral:#c1c6d0;--neutral-soft:#30333a;--mark:#796221;--shadow:0 12px 32px rgba(0,0,0,.25) }html{scroll-behavior:smooth;scroll-padding-top:calc(var(--topbar-height) + 18px);background:var(--bg-subtle)}body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.78 var(--font);-webkit-font-smoothing:antialiased}a{color:var(--brand);text-decoration:none}a:hover{text-decoration:underline;text-underline-offset:.2em}button,input,select{font:inherit}button{touch-action:manipulation}button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid color-mix(in srgb,var(--brand) 35%,transparent);outline-offset:2px}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}[hidden]{display:none!important}.reading-progress{position:fixed;z-index:80;top:0;left:0;width:100%;height:3px;background:transparent}.reading-progress i{display:block;width:0;height:100%;background:var(--brand);transition:width .25s}.topbar{position:sticky;top:0;z-index:70;display:flex;align-items:center;gap:.65rem;min-height:66px;padding:.65rem 1.15rem;border-bottom:1px solid var(--line);background:color-mix(in srgb,var(--bg) 94%,transparent);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}.book-identity{display:flex;flex-direction:column;min-width:13rem;line-height:1.25;color:var(--text)}.book-identity:hover{text-decoration:none}.book-identity strong{font-size:.95rem}.book-identity span{margin-top:.16rem;color:var(--text-3);font-size:.75rem;white-space:nowrap}.toolbar{display:flex;gap:.4rem;align-items:center}.filter-button,.theme-button{height:2.15rem;border:1px solid var(--line);border-radius:999px;background:var(--surface);color:var(--text-2);font-size:.82rem;font-weight:600;cursor:pointer;white-space:nowrap}.filter-button{padding:0 .8rem}.filter-button:hover,.theme-button:hover{border-color:var(--brand);color:var(--text)}.filter-button.is-active{border-color:color-mix(in srgb,var(--brand) 65%,var(--line));background:var(--brand-soft);color:var(--brand)}.search-box{position:relative;display:flex;align-items:center;min-width:10rem;max-width:26rem;flex:1;margin-left:auto}.search-box svg{position:absolute;left:.7rem;width:1rem;height:1rem;fill:none;stroke:var(--text-3);stroke-width:2}.search-box input{width:100%;height:2.35rem;padding:0 2.5rem 0 2.2rem;border:1px solid var(--line);border-radius:.6rem;background:var(--bg-subtle);color:var(--text);font-size:.88rem}.search-box input:focus{background:var(--surface);border-color:var(--brand);outline-width:2px}.search-box kbd{position:absolute;right:.6rem;border:1px solid var(--line);border-radius:.25rem;background:var(--surface);color:var(--text-3);font-size:.7rem;line-height:1;padding:.2rem .3rem}.result-count{color:var(--text-3);font-size:.78rem;font-variant-numeric:tabular-nums;white-space:nowrap}.theme-button{display:grid;place-items:center;width:2.15rem;padding:0}.theme-button svg{width:1.05rem;height:1.05rem;fill:none;stroke:currentColor;stroke-width:1.8}.chapter-jump{display:none;height:2.15rem;max-width:11rem;border:1px solid var(--line);border-radius:.5rem;background:var(--surface);color:var(--text);font-size:.8rem}.continue-wrap{position:fixed;top:calc(var(--topbar-height) + .75rem);right:1rem;z-index:60;display:flex;overflow:hidden;border:1px solid color-mix(in srgb,var(--brand) 28%,var(--line));border-radius:.65rem;background:var(--surface-raised);box-shadow:var(--shadow)}.continue-wrap button{border:0;background:transparent;color:var(--text);cursor:pointer}.continue-wrap button:first-child{padding:.65rem .85rem;font-weight:600}.continue-wrap button:last-child{padding:.45rem .65rem;color:var(--text-3);font-size:1.2rem}.reader-shell{display:grid;grid-template-columns:18rem minmax(0,1fr);align-items:start;max-width:100rem;margin:0 auto}.sidebar{position:sticky;top:var(--topbar-height);height:calc(100vh - var(--topbar-height));overflow:auto;padding:1.5rem 1rem 5rem;border-right:1px solid var(--line);background:var(--bg-subtle);scrollbar-width:thin}.toc-group{padding-bottom:1.05rem;margin-bottom:1.05rem;border-bottom:1px solid var(--line)}.toc-group:last-child{border-bottom:0}.toc-heading{display:flex;gap:.5rem;align-items:flex-start;justify-content:space-between;margin-bottom:.45rem}.toc-heading a{color:var(--text);font-size:.87rem;font-weight:700;line-height:1.45}.toc-heading span{color:var(--text-3);font-size:.72rem}.toc-entries{display:grid;gap:.12rem}.toc-entries a{display:grid;grid-template-columns:1.6rem 1fr;gap:.45rem;padding:.32rem .45rem;border-radius:.42rem;color:var(--text-2);font-size:.78rem;line-height:1.45}.toc-entries a:hover,.toc-entries a.is-current{background:var(--surface);color:var(--brand);text-decoration:none}.toc-entries i{color:var(--text-3);font-style:normal;text-align:right;font-variant-numeric:tabular-nums}.book-main{min-width:0;max-width:61rem;padding:2.2rem 3rem 8rem}.book-opening{padding:1.2rem 0 2.2rem;border-bottom:1px solid var(--line);margin-bottom:2.7rem}.eyebrow,.chapter-kicker{display:block;margin-bottom:.35rem;color:var(--brand);font-size:.78rem;font-weight:750;letter-spacing:.1em;text-transform:uppercase}.book-opening h1{max-width:14em;margin:0;font-size:clamp(2rem,4vw,3.35rem);line-height:1.16;letter-spacing:-.035em}.book-opening>p{max-width:45rem;margin:1rem 0;color:var(--text-2);font-size:1.05rem}.opening-meta{display:flex;flex-wrap:wrap;gap:.7rem 1.2rem;color:var(--text-3);font-size:.82rem}.opening-meta span+span:before{content:"·";margin-right:1.2rem;color:var(--line)}.book-chapter{margin-bottom:4rem}.chapter-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;padding-bottom:.8rem;border-bottom:2px solid var(--line)}.chapter-heading h2{margin:0;font-size:1.65rem;line-height:1.3;letter-spacing:-.015em}.chapter-count{padding-bottom:.18rem;color:var(--text-3);font-size:.78rem;font-variant-numeric:tabular-nums}.chapter-count b{color:var(--text-2)}.chapter-intro{max-width:50rem;margin:1rem 0 1.6rem;padding-left:1rem;border-left:3px solid var(--line);color:var(--text-2)}.entry-list{display:grid;gap:.9rem}.entry-card{scroll-margin-top:calc(var(--topbar-height) + 1rem);padding:1.15rem 1.25rem 1.2rem;border:1px solid var(--line);border-radius:.9rem;background:var(--surface);box-shadow:0 1px 1px #161c2805}.entry-card:hover{border-color:color-mix(in srgb,var(--brand) 22%,var(--line));box-shadow:0 7px 20px #161c280b}.entry-head{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:.75rem;align-items:start}.entry-number{display:grid;place-items:center;min-width:1.7rem;height:1.7rem;padding:0 .3rem;border-radius:.45rem;background:var(--neutral-soft);color:var(--text-3);font-size:.75rem;font-weight:750;font-variant-numeric:tabular-nums}.entry-title-line{display:flex;gap:.5rem;align-items:baseline}.entry-title-line h3{margin:0;font-size:1.06rem;line-height:1.5;letter-spacing:-.005em}.anchor-link{opacity:0;color:var(--text-3);font-size:.82rem}.entry-card:hover .anchor-link,.anchor-link:focus{opacity:1}.badges{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.55rem}.badge,.review-state{display:inline-flex;align-items:center;min-height:1.45rem;padding:0 .55rem;border:1px solid transparent;border-radius:999px;font-size:.7rem;font-weight:700}.badge--brand{background:var(--brand-soft);color:var(--brand)}.badge--success{background:var(--success-soft);color:var(--success)}.badge--warning{background:var(--warning-soft);color:var(--warning)}.badge--danger{background:var(--danger-soft);color:var(--danger)}.badge--neutral{background:var(--neutral-soft);color:var(--neutral)}.review-state{background:var(--danger-soft);color:var(--danger)}.bookmark-button{display:grid;place-items:center;width:2rem;height:2rem;border:0;border-radius:.5rem;background:transparent;color:var(--text-3);cursor:pointer}.bookmark-button:hover{background:var(--bg-subtle);color:var(--brand)}.bookmark-button svg{width:1.15rem;height:1.15rem;fill:none;stroke:currentColor;stroke-width:1.8}.bookmark-button.is-saved{color:var(--brand)}.bookmark-button.is-saved svg{fill:currentColor}.plain-language{display:grid;grid-template-columns:4.2rem 1fr;gap:.8rem;margin:1rem 0 .3rem;padding:.9rem 1rem;border-left:3px solid var(--brand);border-radius:0 .55rem .55rem 0;background:var(--brand-soft)}.plain-label{padding-top:.08rem;color:var(--brand);font-size:.76rem;font-weight:800}.entry-details{margin-left:5rem}.field-block,.entry-note{padding:.9rem 0;border-top:1px solid var(--line)}.field-block h4,.entry-note h4{margin:0 0 .45rem;color:var(--text-3);font-size:.78rem;font-weight:750}.entry-note{margin-top:.1rem;padding:.85rem 1rem;border:0;border-radius:.55rem;background:var(--warning-soft)}.entry-note h4{color:var(--warning)}.review-source{margin-top:.8rem;color:var(--danger);font-size:.75rem}.source-ref{font-weight:400}.prose{min-width:0;color:var(--text-2);overflow-wrap:anywhere}.prose>*:first-child{margin-top:0}.prose>*:last-child{margin-bottom:0}.prose p{margin:.3rem 0 .65rem}.prose ul,.prose ol{margin:.45rem 0 .7rem;padding-left:1.45rem}.prose li+li{margin-top:.18rem}.prose blockquote{margin:.7rem 0;padding:.25rem .85rem;border-left:3px solid var(--line);color:var(--text-3)}.prose code{padding:.12rem .3rem;border-radius:.25rem;background:var(--neutral-soft);font-size:.9em}.prose pre{overflow:auto;padding:1rem;border-radius:.55rem;background:#111827;color:#e5e7eb}.prose pre code{padding:0;background:transparent}.prose table{width:100%;border-collapse:collapse;margin:.8rem 0;font-size:.9rem}.prose th,.prose td{padding:.55rem .65rem;border:1px solid var(--line);text-align:left}.prose th{background:var(--bg-subtle)}.prose img{display:block;max-width:100%;height:auto;margin:1rem auto;border-radius:.5rem}.plain-mode .entry-details{display:none}.plain-mode .entry-card{padding-bottom:.95rem}.plain-mode .plain-language{margin-bottom:0}.search-mark{padding:0 .08em;border-radius:.15em;background:var(--mark);color:inherit}.empty-state{display:grid;place-items:center;gap:.25rem;min-height:12rem;color:var(--text-3);text-align:center}.empty-state strong{color:var(--text);font-size:1.05rem}.entry-source{display:flex;gap:.5rem;align-items:baseline;margin-top:.25rem;padding-top:.75rem;border-top:1px dashed var(--line);color:var(--text-3);font-size:.72rem}.entry-source span{flex:none;color:var(--text-2);font-weight:750}.book-footer{margin-top:4rem;padding-top:1.3rem;border-top:1px solid var(--line);color:var(--text-3);font-size:.82rem}.book-footer p{margin:.3rem 0}.noscript{padding:.8rem 1rem;border:1px solid var(--warning);border-radius:.5rem;background:var(--warning-soft)}.back-to-top{position:fixed;right:1rem;bottom:1rem;z-index:65;width:2.8rem;height:2.8rem;border:1px solid var(--line);border-radius:50%;background:var(--surface-raised);box-shadow:var(--shadow);color:var(--text-2);cursor:pointer;opacity:0;pointer-events:none;transform:translateY(.5rem);transition:.18s}.back-to-top.is-visible{opacity:1;pointer-events:auto;transform:none}.back-to-top:hover{border-color:var(--brand);color:var(--brand)}@media(max-width:1180px){.book-identity span{display:none}.book-identity{min-width:10rem}.sidebar{display:none}.reader-shell{display:block}.book-main{max-width:64rem;margin:0 auto}.chapter-jump{display:block}.toolbar .filter-button[data-mode=badge]{display:none}}@media(max-width:820px){:root{--topbar-height:116px}.topbar{flex-wrap:wrap;gap:.45rem;padding:.55rem .75rem}.book-identity{order:1;min-width:0;flex:1}.chapter-jump{order:2}.theme-button{order:3}.toolbar{order:4;overflow-x:auto;max-width:100%;padding-bottom:.08rem}.search-box{order:5;flex:1 1 70%;max-width:none;margin-left:0}.result-count{order:6;margin-left:auto}.book-main{padding:1.35rem 1rem 6rem}.book-opening{padding-top:.6rem}.book-opening h1{font-size:2.15rem}.entry-card{padding:1rem}.entry-details{margin-left:0}.plain-language{grid-template-columns:1fr;gap:.2rem}.plain-label{font-size:.72rem}.anchor-link{display:none}.opening-meta span+span:before{margin-right:.7rem}.opening-meta{gap:.5rem .7rem}body.compact .toolbar,body.compact .result-count{display:none}body.compact .search-box{order:4;flex:1 1 50%}body.compact .topbar{min-height:66px}.continue-wrap{right:.65rem;left:.65rem;justify-content:space-between}}@media(max-width:480px){.book-identity strong{max-width:11rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.chapter-jump{max-width:8.5rem}.filter-button{padding:0 .7rem}.entry-head{gap:.55rem}.entry-title-line h3{font-size:1rem}.chapter-heading h2{font-size:1.4rem}.entry-card{border-radius:.7rem}.book-opening>p{font-size:1rem}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}@media print{.topbar,.sidebar,.reading-progress,.continue-wrap,.bookmark-button,.anchor-link,.back-to-top{display:none!important}.reader-shell{display:block}.book-main{max-width:none;padding:0}.book-opening{margin-bottom:1.5rem}.entry-card{break-inside:avoid;box-shadow:none}.entry-details{margin-left:0}body{background:#fff;color:#111;font-size:11pt}.book-chapter{break-before:page}.book-chapter:first-of-type{break-before:auto}}
+</style>
+  <meta name="offline-copy" content="true" /></head>
+  <body>
+    
+    <div class="reading-progress" aria-hidden="true"><i id="progressBar"></i></div>
+    <header class="topbar" id="topbar">
+      <a class="book-identity" href="#top" aria-label="返回本书顶部"><strong>如何高效学习</strong><span>从“看懂了”到“真正会用”的行动手册</span></a>
+      <select class="chapter-jump" id="chapterJump" aria-label="跳转到章节"><option value="chapter-diagnose">1. 先定义“学会”</option><option value="chapter-focus">2. 启动专注，并让大脑换挡</option><option value="chapter-retrieve">3. 用主动提取替代反复阅读</option><option value="chapter-space">4. 拉开间隔，混合练习</option><option value="chapter-model">5. 把零散知识组织成模型</option><option value="chapter-practice">6. 把练习变成刻意改进</option><option value="chapter-transfer">7. 用复盘和项目完成迁移</option></select>
+      <div class="toolbar" role="group" aria-label="阅读筛选">
+        <button class="filter-button is-active" type="button" data-mode="all" aria-pressed="true">全部</button>
+        
+    <button class="filter-button" type="button" data-mode="badge" data-filter-key="priority" data-filter-value="core" aria-pressed="false">只看核心动作</button>
+    <button class="filter-button" type="button" data-mode="badge" data-filter-key="rhythm" data-filter-value="now" aria-pressed="false">今天就做</button>
+        <button class="filter-button" type="button" data-mode="plain" aria-pressed="false">只看说人话</button>
+        <button class="filter-button" type="button" data-mode="bookmarks" aria-pressed="false">只看书签</button>
+      </div>
+      <label class="search-box">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></svg>
+        <span class="sr-only">搜索本书</span>
+        <input id="searchInput" type="search" autocomplete="off" placeholder="搜索标题、步骤、备注…" />
+        <kbd>/</kbd>
+      </label>
+      <span class="result-count" id="resultCount">21 / 21 条</span>
+      <button class="theme-button" id="themeButton" type="button" aria-label="切换明暗主题" title="切换明暗主题">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c-5 2-11-4-9-9Z"/></svg>
+      </button>
+    </header>
+    <div class="continue-wrap" id="continueWrap" hidden><button id="continueButton" type="button">继续上次阅读</button><button id="dismissContinue" type="button" aria-label="关闭继续阅读提示">×</button></div>
+    <div class="reader-shell" id="top" data-book-id="learn-smarter">
+      <aside class="sidebar" aria-label="全书目录">
+    <section class="toc-group" data-toc-chapter="chapter-diagnose">
+      <div class="toc-heading"><a href="#chapter-diagnose">1. 先定义“学会”</a><span>3</span></div>
+      <div class="toc-entries">
+        <a href="#diagnose-outcome" data-toc-entry="diagnose-outcome"><i>1</i><span>把学习目标改写成可演示的结果</span></a><a href="#diagnose-baseline" data-toc-entry="diagnose-baseline"><i>2</i><span>学之前先做一次闭卷基线测试</span></a><a href="#diagnose-ladder" data-toc-entry="diagnose-ladder"><i>3</i><span>为难点搭一条“够得着”的阶梯</span></a>
+      </div>
+    </section>
+    <section class="toc-group" data-toc-chapter="chapter-focus">
+      <div class="toc-heading"><a href="#chapter-focus">2. 启动专注，并让大脑换挡</a><span>3</span></div>
+      <div class="toc-entries">
+        <a href="#focus-sprint" data-toc-entry="focus-sprint"><i>1</i><span>用 25 分钟只做一个动作</span></a><a href="#focus-trigger" data-toc-entry="focus-trigger"><i>2</i><span>改环境，而不是等待意志力</span></a><a href="#focus-diffuse" data-toc-entry="focus-diffuse"><i>3</i><span>卡住时主动切到发散模式</span></a>
+      </div>
+    </section>
+    <section class="toc-group" data-toc-chapter="chapter-retrieve">
+      <div class="toc-heading"><a href="#chapter-retrieve">3. 用主动提取替代反复阅读</a><span>3</span></div>
+      <div class="toc-entries">
+        <a href="#retrieve-blank" data-toc-entry="retrieve-blank"><i>1</i><span>合上资料，写一张空白回忆纸</span></a><a href="#retrieve-question" data-toc-entry="retrieve-question"><i>2</i><span>把标题和笔记改写成问题</span></a><a href="#retrieve-feedback" data-toc-entry="retrieve-feedback"><i>3</i><span>建一份只记录模式的错题账</span></a>
+      </div>
+    </section>
+    <section class="toc-group" data-toc-chapter="chapter-space">
+      <div class="toc-heading"><a href="#chapter-space">4. 拉开间隔，混合练习</a><span>3</span></div>
+      <div class="toc-entries">
+        <a href="#space-spacing" data-toc-entry="space-spacing"><i>1</i><span>用 1—3—7—14 天作为复习起点</span></a><a href="#space-interleave" data-toc-entry="space-interleave"><i>2</i><span>在相近题型之间穿插切换</span></a><a href="#space-variation" data-toc-entry="space-variation"><i>3</i><span>用变式检验知识能否迁移</span></a>
+      </div>
+    </section>
+    <section class="toc-group" data-toc-chapter="chapter-model">
+      <div class="toc-heading"><a href="#chapter-model">5. 把零散知识组织成模型</a><span>3</span></div>
+      <div class="toc-entries">
+        <a href="#model-chunk" data-toc-entry="model-chunk"><i>1</i><span>为一个知识组块建立三层结构</span></a><a href="#model-analogy" data-toc-entry="model-analogy"><i>2</i><span>用类比解释，再检查类比的边界</span></a><a href="#model-mental-model" data-toc-entry="model-mental-model"><i>3</i><span>画一张能做预测的心智模型</span></a>
+      </div>
+    </section>
+    <section class="toc-group" data-toc-chapter="chapter-practice">
+      <div class="toc-heading"><a href="#chapter-practice">6. 把练习变成刻意改进</a><span>3</span></div>
+      <div class="toc-entries">
+        <a href="#practice-target" data-toc-entry="practice-target"><i>1</i><span>每轮只改一个可测指标</span></a><a href="#practice-stretch" data-toc-entry="practice-stretch"><i>2</i><span>在舒适区外只迈半步</span></a><a href="#practice-loop" data-toc-entry="practice-loop"><i>3</i><span>建立“尝试—反馈—修正—再试”闭环</span></a>
+      </div>
+    </section>
+    <section class="toc-group" data-toc-chapter="chapter-transfer">
+      <div class="toc-heading"><a href="#chapter-transfer">7. 用复盘和项目完成迁移</a><span>3</span></div>
+      <div class="toc-entries">
+        <a href="#transfer-reflect" data-toc-entry="transfer-reflect"><i>1</i><span>每天做一次五分钟反思</span></a><a href="#transfer-project" data-toc-entry="transfer-project"><i>2</i><span>用一个最小项目逼知识落地</span></a><a href="#transfer-dashboard" data-toc-entry="transfer-dashboard"><i>3</i><span>每周只看四个学习指标</span></a>
+      </div>
+    </section></aside>
+      <main class="book-main">
+        <header class="book-opening">
+          <span class="eyebrow">行动工具书 · 21 条</span>
+          <h1>如何高效学习</h1>
+          <p>综合认知科学、整体性学习、刻意练习与行动学习方法，整理成 21 个可立即执行的学习动作。</p>
+          <div class="opening-meta"><span>ArcaneLune 整理</span><span>7 章</span><span>支持离线阅读</span></div>
+        </header>
+        <noscript><p class="noscript">正文可以直接阅读；搜索、筛选、书签和阅读进度需要启用 JavaScript。</p></noscript>
+        
+    <section class="book-chapter" id="chapter-diagnose" data-chapter-id="diagnose">
+      <header class="chapter-heading">
+        <div><span class="chapter-kicker">第 1 章</span><h2>先定义“学会”</h2></div>
+        <span class="chapter-count"><b class="chapter-visible">3</b> / 3 条</span>
+      </header>
+      <p class="chapter-intro">高效不是把时间塞满，而是先决定最终要能做什么，再用一次低压力测试找出真正的缺口。</p>
+      <div class="entry-list">
+  <article class="entry-card" id="diagnose-outcome"
+    data-entry-id="diagnose-outcome" data-entry-index="0"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;now&quot;,&quot;method&quot;:&quot;outcome&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">1</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>把学习目标改写成可演示的结果</h3>
+          <a class="anchor-link" href="#diagnose-outcome" aria-label="复制或打开“把学习目标改写成可演示的结果”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--danger" title="节奏">今天就做</span><span class="badge badge--brand" title="方法">结果定义</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“把学习目标改写成可演示的结果”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>不要写“学会数据分析”，要写“能独立清洗一份脏数据，并用三张图解释结论”。能展示、能评分，才知道自己是否真的学会。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>写下最终要完成的真实任务，而不是要看完的资料。</li>
+<li>为结果补上场景、质量标准和截止日期。</li>
+<li>把大目标拆成一周内可以验证的小表现。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>完成标准</h4>
+      <div class="prose"><p>目标中至少包含一个动作词、一个可检查的产物和一个判断好坏的标准。</p>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>常见误区</h4>
+      <div class="prose"><p>“理解、熟悉、掌握”无法直接验收；把它们换成解释、判断、制作、解决或教会别人。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 4799–4805、4867 行（有目的的练习）</div></div>
+  </article>
+  <article class="entry-card" id="diagnose-baseline"
+    data-entry-id="diagnose-baseline" data-entry-index="1"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;now&quot;,&quot;method&quot;:&quot;baseline&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">2</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>学之前先做一次闭卷基线测试</h3>
+          <a class="anchor-link" href="#diagnose-baseline" aria-label="复制或打开“学之前先做一次闭卷基线测试”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--danger" title="节奏">今天就做</span><span class="badge badge--success" title="方法">基线测试</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“学之前先做一次闭卷基线测试”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>先暴露“不知道”，再开始学。基线测试不是为了打分，而是为了把时间集中在真正薄弱的地方。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>不看资料，写下你已经知道的概念、步骤和疑问。</li>
+<li>做 5 道代表性题目，或尝试完成一个最小任务。</li>
+<li>将结果分成“会做、会一点、不会做”三栏。</li>
+<li>本轮只选择一个高价值缺口作为主攻点。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>完成标准</h4>
+      <div class="prose"><p>得到一张带日期的基线记录，并明确下一轮学习要解决的一个具体缺口。</p>
+</div>
+    </section>
+    <aside class="entry-note">
+      <h4>备注</h4>
+      <div class="prose"><p>低分是诊断信息，不是能力判决。基线越真实，后续进步越容易看见。</p>
+</div>
+    </aside><div class="entry-source"><span>来源定位</span>《认知天性》PDF，第 38–49、163 页（测验效应与动态测验）</div></div>
+  </article>
+  <article class="entry-card" id="diagnose-ladder"
+    data-entry-id="diagnose-ladder" data-entry-index="2"
+    data-badges="{&quot;priority&quot;:&quot;deepen&quot;,&quot;rhythm&quot;:&quot;weekly&quot;,&quot;method&quot;:&quot;ladder&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">3</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>为难点搭一条“够得着”的阶梯</h3>
+          <a class="anchor-link" href="#diagnose-ladder" aria-label="复制或打开“为难点搭一条“够得着”的阶梯”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--neutral" title="优先级">进阶动作</span><span class="badge badge--warning" title="节奏">每周</span><span class="badge badge--warning" title="方法">难度阶梯</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“为难点搭一条“够得着”的阶梯”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>练习要比当前水平难一点，但不能难到只能猜。卡住时先降低跨度、补先修知识，再逐步加难。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>给当前任务按 1–5 级标难度。</li>
+<li>如果完全无从下手，补一个更小的示范题或先修概念。</li>
+<li>如果几乎不犯错，增加约束、速度或变式。</li>
+<li>每周根据错误率调整一级难度。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>判断规则</h4>
+      <div class="prose"><p>能独立完成大部分步骤、又会稳定暴露一两个新问题，通常就是合适难度。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 4815、4821–4843 行；《认知天性》PDF，第 110 页</div></div>
+  </article></div>
+    </section>
+    <section class="book-chapter" id="chapter-focus" data-chapter-id="focus">
+      <header class="chapter-heading">
+        <div><span class="chapter-kicker">第 2 章</span><h2>启动专注，并让大脑换挡</h2></div>
+        <span class="chapter-count"><b class="chapter-visible">3</b> / 3 条</span>
+      </header>
+      <p class="chapter-intro">拖延常发生在开始之前。用短时段降低启动阻力，再主动安排放松，让专注思考与发散联想轮流工作。</p>
+      <div class="entry-list">
+  <article class="entry-card" id="focus-sprint"
+    data-entry-id="focus-sprint" data-entry-index="3"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;now&quot;,&quot;method&quot;:&quot;sprint&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">1</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>用 25 分钟只做一个动作</h3>
+          <a class="anchor-link" href="#focus-sprint" aria-label="复制或打开“用 25 分钟只做一个动作”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--danger" title="节奏">今天就做</span><span class="badge badge--brand" title="方法">专注冲刺</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“用 25 分钟只做一个动作”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>先承诺专注 25 分钟，不承诺今天完成整门课。启动成本变小，注意力也有清楚的边界。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>写下这一轮唯一动作，例如“闭卷做第 1–3 题”。</li>
+<li>手机离手，关闭通知，启动 25 分钟计时。</li>
+<li>分心念头只记在纸上，不立刻处理。</li>
+<li>时间到后休息 5 分钟；连续四轮后休息更久。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>完成标准</h4>
+      <div class="prose"><p>这一轮只评价是否守住过程，不评价任务是否全部完成。</p>
+</div>
+    </section>
+    <aside class="entry-note">
+      <h4>备注</h4>
+      <div class="prose"><p>如果 25 分钟仍难启动，先做 10 分钟；稳定以后再延长。</p>
+</div>
+    </aside><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 1677–1705 行（番茄工作法）</div></div>
+  </article>
+  <article class="entry-card" id="focus-trigger"
+    data-entry-id="focus-trigger" data-entry-index="4"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;daily&quot;,&quot;method&quot;:&quot;trigger&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">2</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>改环境，而不是等待意志力</h3>
+          <a class="anchor-link" href="#focus-trigger" aria-label="复制或打开“改环境，而不是等待意志力”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--success" title="节奏">每日</span><span class="badge badge--warning" title="方法">环境设计</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“改环境，而不是等待意志力”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>把“看到手机就分心”当作环境问题处理。减少触发物，并把开始学习变成固定动作链。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>记录最近三次分心前出现了什么信号。</li>
+<li>为最常见信号设计替代反应：手机进抽屉、网站屏蔽、耳机戴上。</li>
+<li>固定一个启动仪式：坐下、开资料、写目标、开计时。</li>
+<li>前一晚准备好第二天第一轮要用的材料。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>常见误区</h4>
+      <div class="prose"><p>不要用“我今天一定完成全部内容”制造压力；只要求自己进入下一段学习过程。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 1607、1655–1667、1695 行（拖延信号与过程关注）</div></div>
+  </article>
+  <article class="entry-card" id="focus-diffuse"
+    data-entry-id="focus-diffuse" data-entry-index="5"
+    data-badges="{&quot;priority&quot;:&quot;deepen&quot;,&quot;rhythm&quot;:&quot;daily&quot;,&quot;method&quot;:&quot;diffuse&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">3</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>卡住时主动切到发散模式</h3>
+          <a class="anchor-link" href="#focus-diffuse" aria-label="复制或打开“卡住时主动切到发散模式”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--neutral" title="优先级">进阶动作</span><span class="badge badge--success" title="节奏">每日</span><span class="badge badge--success" title="方法">思维换挡</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“卡住时主动切到发散模式”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>难题不是盯得越久越好。先认真输入，再散步、洗澡或睡一觉，让大脑换一种连接信息的方式。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>专注尝试至少 20 分钟，并写清卡点。</li>
+<li>离开屏幕，做不占用语言思考的轻活动。</li>
+<li>回来后先写新想到的路径，再看答案。</li>
+<li>把有效突破记录成可复用的提示。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>适用条件</h4>
+      <div class="prose"><p>适合概念理解、复杂问题和创意任务；不适合在尚未认真输入前把放松当作逃避。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 453、459–507 行（专注模式与发散模式）</div></div>
+  </article></div>
+    </section>
+    <section class="book-chapter" id="chapter-retrieve" data-chapter-id="retrieve">
+      <header class="chapter-heading">
+        <div><span class="chapter-kicker">第 3 章</span><h2>用主动提取替代反复阅读</h2></div>
+        <span class="chapter-count"><b class="chapter-visible">3</b> / 3 条</span>
+      </header>
+      <p class="chapter-intro">熟悉感不等于掌握。合上书、努力回忆、立即纠错，才会让知识真正变得可调用。</p>
+      <div class="entry-list">
+  <article class="entry-card" id="retrieve-blank"
+    data-entry-id="retrieve-blank" data-entry-index="6"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;now&quot;,&quot;method&quot;:&quot;blank&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">1</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>合上资料，写一张空白回忆纸</h3>
+          <a class="anchor-link" href="#retrieve-blank" aria-label="复制或打开“合上资料，写一张空白回忆纸”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--danger" title="节奏">今天就做</span><span class="badge badge--brand" title="方法">空白回忆</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“合上资料，写一张空白回忆纸”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>读完一小节就合上资料，凭记忆写出要点、关系和例子。想不起来的费力感，正是训练发生的地方。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>学习 10–20 分钟后彻底遮住资料。</li>
+<li>写出三个核心点，并画出它们之间的关系。</li>
+<li>尝试举一个新例子或完成一道题。</li>
+<li>打开资料，用另一种颜色补漏和改错。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>完成标准</h4>
+      <div class="prose"><p>回忆纸必须先于核对答案产生；只抄写重点不算提取。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《认知天性》PDF，第 38–49 页；《学习之道》合集 TXT，第 1095–1105 行</div></div>
+  </article>
+  <article class="entry-card" id="retrieve-question"
+    data-entry-id="retrieve-question" data-entry-index="7"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;daily&quot;,&quot;method&quot;:&quot;question&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">2</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>把标题和笔记改写成问题</h3>
+          <a class="anchor-link" href="#retrieve-question" aria-label="复制或打开“把标题和笔记改写成问题”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--success" title="节奏">每日</span><span class="badge badge--warning" title="方法">问题化</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“把标题和笔记改写成问题”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>笔记不是保存答案的仓库，而应是下一次提取的题库。尽量使用需要自己组织答案的问题。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>每个小节写 1–3 个“为什么、如何、何时使用”的问题。</li>
+<li>在答案区只保留关键词和评分点。</li>
+<li>第二天随机抽题，口述或写出完整答案。</li>
+<li>为答错问题标记下一次复习日期。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>示例</h4>
+      <div class="prose"><p>把“间隔练习的定义”改成：“为什么拉开复习间隔反而更牢？我会怎样安排三次复习？”</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《认知天性》PDF，第 49、55、228–230 页（费力检索与自测）</div></div>
+  </article>
+  <article class="entry-card" id="retrieve-feedback"
+    data-entry-id="retrieve-feedback" data-entry-index="8"
+    data-badges="{&quot;priority&quot;:&quot;deepen&quot;,&quot;rhythm&quot;:&quot;daily&quot;,&quot;method&quot;:&quot;feedback&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">3</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>建一份只记录模式的错题账</h3>
+          <a class="anchor-link" href="#retrieve-feedback" aria-label="复制或打开“建一份只记录模式的错题账”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--neutral" title="优先级">进阶动作</span><span class="badge badge--success" title="节奏">每日</span><span class="badge badge--success" title="方法">即时纠错</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“建一份只记录模式的错题账”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>不要收藏整道错题；记录“我为什么会错”和“下次看到什么信号该换哪种做法”。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>记录模板</h4>
+      <div class="prose"><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>要写什么</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>任务</td>
+<td>我当时要解决什么</td>
+</tr>
+<tr>
+<td>误判</td>
+<td>哪一步判断错了</td>
+</tr>
+<tr>
+<td>原因</td>
+<td>概念缺口、识别错误还是执行失误</td>
+</tr>
+<tr>
+<td>新规则</td>
+<td>下次看到什么线索就做什么</td>
+</tr>
+<tr>
+<td>验证</td>
+<td>用一道变式题确认规则是否有效</td>
+</tr>
+</tbody></table>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>完成标准</h4>
+      <div class="prose"><p>每条错误都以一次新尝试结束；只看正确答案不算完成纠错。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 1105、4815 行；第 9150 行（反馈与模型纠错）</div></div>
+  </article></div>
+    </section>
+    <section class="book-chapter" id="chapter-space" data-chapter-id="space">
+      <header class="chapter-heading">
+        <div><span class="chapter-kicker">第 4 章</span><h2>拉开间隔，混合练习</h2></div>
+        <span class="chapter-count"><b class="chapter-visible">3</b> / 3 条</span>
+      </header>
+      <p class="chapter-intro">短期流畅很容易骗人。适度遗忘后再提取，并在相近问题之间切换，才能获得持久记忆与辨别能力。</p>
+      <div class="entry-list">
+  <article class="entry-card" id="space-spacing"
+    data-entry-id="space-spacing" data-entry-index="9"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;now&quot;,&quot;method&quot;:&quot;spacing&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">1</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>用 1—3—7—14 天作为复习起点</h3>
+          <a class="anchor-link" href="#space-spacing" aria-label="复制或打开“用 1—3—7—14 天作为复习起点”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--danger" title="节奏">今天就做</span><span class="badge badge--brand" title="方法">间隔复习</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“用 1—3—7—14 天作为复习起点”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>不要同一天反复刷到熟。把复习分散到会有一点遗忘的时候，每次先回忆再核对。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>新知识当天做一次短回忆。</li>
+<li>暂用第 1、3、7、14 天安排后续提取。</li>
+<li>答得轻松就拉长间隔，频繁出错就缩短。</li>
+<li>每次复习只保留仍然困难的项目。</li>
+</ol>
+</div>
+    </section>
+    <aside class="entry-note">
+      <h4>备注</h4>
+      <div class="prose"><p>1—3—7—14 只是便于启动的编辑建议，不是原书规定的固定公式；应按难度与表现动态调整。</p>
+</div>
+    </aside><div class="entry-source"><span>来源定位</span>《认知天性》PDF，第 60、75、95 页（间隔练习与再巩固）</div></div>
+  </article>
+  <article class="entry-card" id="space-interleave"
+    data-entry-id="space-interleave" data-entry-index="10"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;daily&quot;,&quot;method&quot;:&quot;interleave&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">2</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>在相近题型之间穿插切换</h3>
+          <a class="anchor-link" href="#space-interleave" aria-label="复制或打开“在相近题型之间穿插切换”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--success" title="节奏">每日</span><span class="badge badge--warning" title="方法">穿插练习</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“在相近题型之间穿插切换”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>不要把同一种题一次刷完。把容易混淆的类型混在一起，先判断该用哪种方法，再动手求解。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>选择 2–4 种相关但不同的题型或技能。</li>
+<li>打乱顺序，不在题目前标注类型。</li>
+<li>每题先写“我为什么选这个方法”。</li>
+<li>复盘时重点比较相似题型的识别线索。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>常见误区</h4>
+      <div class="prose"><p>穿插会让当下速度变慢，这不代表学习变差；它训练的是选择方法，而不只是重复动作。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《认知天性》PDF，第 61、65–66、76、97 页（穿插练习）</div></div>
+  </article>
+  <article class="entry-card" id="space-variation"
+    data-entry-id="space-variation" data-entry-index="11"
+    data-badges="{&quot;priority&quot;:&quot;deepen&quot;,&quot;rhythm&quot;:&quot;weekly&quot;,&quot;method&quot;:&quot;variation&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">3</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>用变式检验知识能否迁移</h3>
+          <a class="anchor-link" href="#space-variation" aria-label="复制或打开“用变式检验知识能否迁移”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--neutral" title="优先级">进阶动作</span><span class="badge badge--warning" title="节奏">每周</span><span class="badge badge--success" title="方法">多样化</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“用变式检验知识能否迁移”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>换数据、换场景、换表达方式再做一次。只有条件改变后仍能选对方法，才算学会了原则。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>变式清单</h4>
+      <div class="prose"><ul>
+<li>改变任务背景，但保留核心原理。</li>
+<li>加入无关信息，练习筛选线索。</li>
+<li>要求从反例判断方法何时不适用。</li>
+<li>把“照着做”改为“向别人解释为什么这样做”。</li>
+</ul>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>完成标准</h4>
+      <div class="prose"><p>至少在一个没见过的情境中正确应用，并说出它与原例的关键相同点。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《认知天性》PDF，第 57–73、97 页（多样化练习与辨析）</div></div>
+  </article></div>
+    </section>
+    <section class="book-chapter" id="chapter-model" data-chapter-id="model">
+      <header class="chapter-heading">
+        <div><span class="chapter-kicker">第 5 章</span><h2>把零散知识组织成模型</h2></div>
+        <span class="chapter-count"><b class="chapter-visible">3</b> / 3 条</span>
+      </header>
+      <p class="chapter-intro">记住事实只是起点。通过组块、类比和结构图，把知识压缩成可以解释、推断和调用的心智模型。</p>
+      <div class="entry-list">
+  <article class="entry-card" id="model-chunk"
+    data-entry-id="model-chunk" data-entry-index="12"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;daily&quot;,&quot;method&quot;:&quot;chunk&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">1</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>为一个知识组块建立三层结构</h3>
+          <a class="anchor-link" href="#model-chunk" aria-label="复制或打开“为一个知识组块建立三层结构”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--success" title="节奏">每日</span><span class="badge badge--brand" title="方法">组块</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“为一个知识组块建立三层结构”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>把一堆细节压缩为“核心概念—识别线索—执行步骤”。需要时先提取组块，再展开细节。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>用一句话写出这个组块解决什么问题。</li>
+<li>列出触发它的三个典型线索。</li>
+<li>写出最少执行步骤和一个反例。</li>
+<li>不看资料重做一题，确认组块能被独立调用。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>完成标准</h4>
+      <div class="prose"><p>你能在一分钟内解释这个组块，并在新题中识别出何时该用、何时不该用。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 991–1323 行（组块构建与能力错觉）</div></div>
+  </article>
+  <article class="entry-card" id="model-analogy"
+    data-entry-id="model-analogy" data-entry-index="13"
+    data-badges="{&quot;priority&quot;:&quot;deepen&quot;,&quot;rhythm&quot;:&quot;now&quot;,&quot;method&quot;:&quot;analogy&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">2</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>用类比解释，再检查类比的边界</h3>
+          <a class="anchor-link" href="#model-analogy" aria-label="复制或打开“用类比解释，再检查类比的边界”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--neutral" title="优先级">进阶动作</span><span class="badge badge--danger" title="节奏">今天就做</span><span class="badge badge--warning" title="方法">类比</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“用类比解释，再检查类比的边界”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>为抽象概念找一个熟悉对象，但必须补一句“它在哪些地方不像”，避免把类比误当事实。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>选出概念中最重要的关系。</li>
+<li>找一个具有相同关系的日常系统。</li>
+<li>写出至少两个相似点和一个失效点。</li>
+<li>用类比向一个不了解主题的人解释。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>示例</h4>
+      <div class="prose"><p>把工作记忆比作小桌面可以解释容量有限；但它不是固定大小的物理容器，这就是类比边界。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 7519、7645、7727 行（比喻法与拓展）</div></div>
+  </article>
+  <article class="entry-card" id="model-mental-model"
+    data-entry-id="model-mental-model" data-entry-index="14"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;weekly&quot;,&quot;method&quot;:&quot;model&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">3</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>画一张能做预测的心智模型</h3>
+          <a class="anchor-link" href="#model-mental-model" aria-label="复制或打开“画一张能做预测的心智模型”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--warning" title="节奏">每周</span><span class="badge badge--success" title="方法">心智模型</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“画一张能做预测的心智模型”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>好的知识结构不只是总结过去，还能预测“如果改变这个条件，会发生什么”。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>写下系统中的关键变量或角色。</li>
+<li>用箭头标出因果、顺序或约束关系。</li>
+<li>改变一个变量，先预测结果，再找案例验证。</li>
+<li>发现预测失败时，修改连接而不是只补一个孤立事实。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>完成标准</h4>
+      <div class="prose"><p>模型至少成功解释一个旧案例，并对一个新情境给出可检验的预测。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《认知天性》PDF，第 95、146 页；《学习之道》合集 TXT，第 4209–4211 行</div></div>
+  </article></div>
+    </section>
+    <section class="book-chapter" id="chapter-practice" data-chapter-id="practice">
+      <header class="chapter-heading">
+        <div><span class="chapter-kicker">第 6 章</span><h2>把练习变成刻意改进</h2></div>
+        <span class="chapter-count"><b class="chapter-visible">3</b> / 3 条</span>
+      </header>
+      <p class="chapter-intro">重复并不自动带来进步。一次有效练习需要明确目标、略高于现有水平的挑战，以及足够快的反馈。</p>
+      <div class="entry-list">
+  <article class="entry-card" id="practice-target"
+    data-entry-id="practice-target" data-entry-index="15"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;now&quot;,&quot;method&quot;:&quot;target&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">1</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>每轮只改一个可测指标</h3>
+          <a class="anchor-link" href="#practice-target" aria-label="复制或打开“每轮只改一个可测指标”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--danger" title="节奏">今天就做</span><span class="badge badge--brand" title="方法">单点目标</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“每轮只改一个可测指标”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>“多练一会儿”不是计划。每轮练习只针对一个弱点，并提前写下成功标准。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>从错误账中挑一个最常出现的模式。</li>
+<li>设计 20–40 分钟的专项任务。</li>
+<li>写下可计数指标，如正确率、耗时或独立完成次数。</li>
+<li>结束后立即记录结果，决定下一轮是加难还是补基础。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>示例</h4>
+      <div class="prose"><p>不是“练演讲”，而是“连续三次在 60 秒内讲清问题、证据和结论，不看提词”。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 4769、4799–4805、4867 行（有目的的练习）</div></div>
+  </article>
+  <article class="entry-card" id="practice-stretch"
+    data-entry-id="practice-stretch" data-entry-index="16"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;daily&quot;,&quot;method&quot;:&quot;stretch&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">2</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>在舒适区外只迈半步</h3>
+          <a class="anchor-link" href="#practice-stretch" aria-label="复制或打开“在舒适区外只迈半步”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--success" title="节奏">每日</span><span class="badge badge--warning" title="方法">舒适区外</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“在舒适区外只迈半步”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>选择刚好会犯错的任务。太简单只是在维持，太难则无法形成高质量反馈。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>调难旋钮</h4>
+      <div class="prose"><ul>
+<li>减少提示或参考资料。</li>
+<li>提高速度，但保持最低质量线。</li>
+<li>加入一种陌生变式。</li>
+<li>要求解释决策过程，而不只给答案。</li>
+</ul>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>降难旋钮</h4>
+      <div class="prose"><p>缩小任务、补一个示例、恢复部分提示，或先练最薄弱的子步骤。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 4821–4843 行（走出舒适区）</div></div>
+  </article>
+  <article class="entry-card" id="practice-loop"
+    data-entry-id="practice-loop" data-entry-index="17"
+    data-badges="{&quot;priority&quot;:&quot;deepen&quot;,&quot;rhythm&quot;:&quot;daily&quot;,&quot;method&quot;:&quot;loop&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">3</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>建立“尝试—反馈—修正—再试”闭环</h3>
+          <a class="anchor-link" href="#practice-loop" aria-label="复制或打开“建立“尝试—反馈—修正—再试”闭环”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--neutral" title="优先级">进阶动作</span><span class="badge badge--success" title="节奏">每日</span><span class="badge badge--success" title="方法">反馈闭环</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“建立“尝试—反馈—修正—再试”闭环”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>反馈要快到还能记得自己的判断过程，并具体到下一次能改变一个动作。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>独立尝试，保留草稿或思考痕迹。</li>
+<li>用标准答案、测试结果、教练或真实用户获得反馈。</li>
+<li>只挑一个可行动的问题进行修正。</li>
+<li>立刻做一道变式题或再演一次，验证修正。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>常见误区</h4>
+      <div class="prose"><p>“做得不好”“继续努力”不是反馈；有效反馈应指出差距出现在哪一步，以及下一次怎样不同。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 4815、9150 行（直接反馈与模型纠错）</div></div>
+  </article></div>
+    </section>
+    <section class="book-chapter" id="chapter-transfer" data-chapter-id="transfer">
+      <header class="chapter-heading">
+        <div><span class="chapter-kicker">第 7 章</span><h2>用复盘和项目完成迁移</h2></div>
+        <span class="chapter-count"><b class="chapter-visible">3</b> / 3 条</span>
+      </header>
+      <p class="chapter-intro">学习的终点不是记住，而是在真实问题中做出更好的判断。用短复盘提炼规则，再把规则投入下一轮行动。</p>
+      <div class="entry-list">
+  <article class="entry-card" id="transfer-reflect"
+    data-entry-id="transfer-reflect" data-entry-index="18"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;daily&quot;,&quot;method&quot;:&quot;reflect&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">1</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>每天做一次五分钟反思</h3>
+          <a class="anchor-link" href="#transfer-reflect" aria-label="复制或打开“每天做一次五分钟反思”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--success" title="节奏">每日</span><span class="badge badge--brand" title="方法">短复盘</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“每天做一次五分钟反思”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>经历不会自动变成经验。每天结束时，回忆发生了什么、为什么有效，以及下次要改哪一步。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>复盘问题</h4>
+      <div class="prose"><ol>
+<li>今天我实际完成了什么？</li>
+<li>哪个判断有效，证据是什么？</li>
+<li>哪个地方卡住，真正原因是什么？</li>
+<li>明天遇到同类情境，我先做什么？</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>完成标准</h4>
+      <div class="prose"><p>最后一句必须是可执行的“如果……那么……”规则，并在下一次行动中验证。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《认知天性》PDF，第 70、77、100 页（反思作为检索与细化）</div></div>
+  </article>
+  <article class="entry-card" id="transfer-project"
+    data-entry-id="transfer-project" data-entry-index="19"
+    data-badges="{&quot;priority&quot;:&quot;core&quot;,&quot;rhythm&quot;:&quot;now&quot;,&quot;method&quot;:&quot;project&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">2</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>用一个最小项目逼知识落地</h3>
+          <a class="anchor-link" href="#transfer-project" aria-label="复制或打开“用一个最小项目逼知识落地”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--brand" title="优先级">核心动作</span><span class="badge badge--danger" title="节奏">今天就做</span><span class="badge badge--warning" title="方法">项目应用</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“用一个最小项目逼知识落地”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>选一个一周内能交付的小项目，让知识在真实约束中暴露漏洞，而不是继续囤积教程。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>操作步骤</h4>
+      <div class="prose"><ol>
+<li>定义一个真实使用者和最小产物。</li>
+<li>限定一周和少量关键功能。</li>
+<li>先做，再按遇到的问题定向补知识。</li>
+<li>交付给真实的人使用或评价。</li>
+<li>根据反馈完成一次修改并写下迁移规则。</li>
+</ol>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>示例</h4>
+      <div class="prose"><p>学统计时，不只做章节习题；用一份公开数据回答一个具体问题，并发布一页结论说明。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《学习之道》合集 TXT，第 7727、8253、9150 行（项目学习、应用与纠错）</div></div>
+  </article>
+  <article class="entry-card" id="transfer-dashboard"
+    data-entry-id="transfer-dashboard" data-entry-index="20"
+    data-badges="{&quot;priority&quot;:&quot;deepen&quot;,&quot;rhythm&quot;:&quot;weekly&quot;,&quot;method&quot;:&quot;dashboard&quot;}">
+    <header class="entry-head">
+      <span class="entry-number" aria-hidden="true">3</span>
+      <div class="entry-title-wrap">
+        <div class="entry-title-line">
+          <h3>每周只看四个学习指标</h3>
+          <a class="anchor-link" href="#transfer-dashboard" aria-label="复制或打开“每周只看四个学习指标”的直达链接">#</a>
+        </div>
+        <div class="badges"><span class="badge badge--neutral" title="优先级">进阶动作</span><span class="badge badge--warning" title="节奏">每周</span><span class="badge badge--success" title="方法">周仪表盘</span></div>
+      </div>
+      <button class="bookmark-button" type="button" aria-label="收藏“每周只看四个学习指标”" aria-pressed="false" title="收藏">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.75 4.75A1.75 1.75 0 0 1 8.5 3h7A1.75 1.75 0 0 1 17.25 4.75v16L12 17.4l-5.25 3.35v-16Z"/></svg>
+      </button>
+    </header>
+    <div class="plain-language"><span class="plain-label">说人话</span><div class="prose"><p>不要只统计学习时长。每周看自己能否提取、能否辨别、能否应用，以及错误是否在减少。</p>
+</div></div>
+    <div class="entry-details">
+    <section class="field-block">
+      <h4>仪表盘</h4>
+      <div class="prose"><table>
+<thead>
+<tr>
+<th>指标</th>
+<th>本周问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>提取</td>
+<td>闭卷能答对多少核心问题？</td>
+</tr>
+<tr>
+<td>辨别</td>
+<td>混合题中能否选对方法？</td>
+</tr>
+<tr>
+<td>应用</td>
+<td>是否产出一个可检查的作品？</td>
+</tr>
+<tr>
+<td>纠错</td>
+<td>重复错误减少了吗？</td>
+</tr>
+</tbody></table>
+</div>
+    </section>
+    <section class="field-block">
+      <h4>下一步</h4>
+      <div class="prose"><p>选择最低的一项，转化为下周唯一的改进目标；保留已有效的节奏，不同时重做整套系统。</p>
+</div>
+    </section><div class="entry-source"><span>来源定位</span>《认知天性》PDF，第 163 页（动态测验循环）；《学习之道》合集 TXT，第 12473 行（行动复盘与迁移）</div></div>
+  </article></div>
+    </section>
+        <div class="empty-state" id="emptyState" hidden><strong>没有找到匹配内容</strong><span>换一个关键词，或清除当前筛选。</span></div>
+        <footer class="book-footer">
+          <p><strong>如何高效学习</strong> · ArcaneLune 整理</p>
+          <p>本站为个人学习用的原创方法摘要；源书著作权归各作者与出版方，本站不替代原书。 内容许可：<a href="https://github.com/ArcaneLune/action-book-reader" target="_blank" rel="noopener noreferrer">保留所有权利</a> · <a href="https://github.com/ArcaneLune/learn-smarter" target="_blank" rel="noopener noreferrer">查看源仓库</a></p>
+        </footer>
+      </main>
+    </div>
+    <button class="back-to-top" id="backToTop" type="button" aria-label="回到顶部" title="回到顶部">↑</button>
+  </body>
+</html>

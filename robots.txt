@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://arcanelune.github.io/learn-smarter/sitemap.xml

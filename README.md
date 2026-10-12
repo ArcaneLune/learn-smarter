@@ -1,6 +1,6 @@
 # 如何高效学习
 
-综合认知科学、整体性学习、刻意练习与行动学习方法，整理成 21 个可立即执行的学习动作。
+按顺序照着做：定目标、找弱点、专注学、合书回想、隔天复习、专练弱点，再用项目检验。
 
 - 在线阅读：https://arcanelune.github.io/learn-smarter/
 - 离线版：`download/learn-smarter.html`
